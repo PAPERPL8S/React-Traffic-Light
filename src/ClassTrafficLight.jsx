@@ -6,7 +6,7 @@ export class ClassTrafficLight extends Component {
     super(props);
     this.state = {
       colorIndex: 0,
-      colors: ["red", "yellow", "green"],
+      colors: ["red", "green", "yellow"],
     };
   }
 
@@ -25,8 +25,8 @@ export class ClassTrafficLight extends Component {
           {colors.map((color, index) => (
             <div
               key={index}
-              className={`circle ${color} ${
-                index === colorIndex ? "active" : ""
+              className={`circle ${
+                index === colorIndex ? color : "black"
               }`}></div>
           ))}
         </div>

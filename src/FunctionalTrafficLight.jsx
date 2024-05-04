@@ -8,14 +8,17 @@ export const FunctionalTrafficLight = () => {
   const handleNextState = () => {
     setColorIndex((prevIndex) => (prevIndex + 1) % 3);
   };
+
   return (
     <div className="traffic-light-box">
       <h2>Functional Traffic Light</h2>
       <div className="traffic-light">
-        {colors.map((_, index) => (
+        {colors.map((color, index) => (
           <div
             key={index}
-            className={`circle ${index === colorIndex ? "active" : ""}`}></div>
+            className={`circle ${
+              index === colorIndex ? color : "black"
+            }`}></div>
         ))}
       </div>
       <button className="next-state-button" onClick={handleNextState}>
