@@ -1,18 +1,41 @@
-import { Component } from "react";
+import React, { Component } from "react";
+import "./index.css";
 
 export class ClassTrafficLight extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      colorIndex: 0,
+      colors: ["red", "yellow", "green"],
+    };
+  }
+
+  handleNextState = () => {
+    this.setState((prevState) => ({
+      colorIndex: (prevState.colorIndex + 1) % 3,
+    }));
+  };
+
   render() {
+    const { colorIndex, colors } = this.state;
     return (
       <div className="traffic-light-box">
         <h2>Class Traffic Light</h2>
         <div className="traffic-light">
-          {/* Background color can be black | yellow | red | green */}
-          <div className="circle red"></div>
-          <div className="circle black"></div>
-          <div className="circle black"></div>
+          {colors.map((color, index) => (
+            <div
+              key={index}
+              className={`circle ${color} ${
+                index === colorIndex ? "active" : ""
+              }`}></div>
+          ))}
         </div>
-        <button className="next-state-button">Next State</button>
+        <button className="next-state-button" onClick={this.handleNextState}>
+          Next State
+        </button>
       </div>
     );
   }
 }
+
+export default ClassTrafficLight;
