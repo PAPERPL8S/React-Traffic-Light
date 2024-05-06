@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import "./index.css";
 
-
 const colors = ["red", "yellow", "green"];
 export class ClassTrafficLight extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colorIndex: 0
+      colorIndex: 0,
     };
   }
 
   handleNextState = () => {
     this.setState((prevState) => ({
-      colorIndex: (prevState.colorIndex + 2) % colors.length
+      colorIndex: (prevState.colorIndex + 2) % colors.length,
     }));
   };
 
