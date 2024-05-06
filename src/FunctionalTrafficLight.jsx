@@ -3,10 +3,11 @@ import "./index.css";
 
 export const FunctionalTrafficLight = () => {
   const [colorIndex, setColorIndex] = useState(0);
-  const colors = ["red", "green", "yellow"];
+  const colors = ["red", "yellow", "green"];
 
   const handleNextState = () => {
-    setColorIndex((prevIndex) => (prevIndex + 1) % 3);
+    let nextIndex = (colorIndex + 2) % colors.length;
+    setColorIndex(nextIndex);
   };
 
   return (

@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 import "./index.css";
 
+
+const colors = ["red", "yellow", "green"];
 export class ClassTrafficLight extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colorIndex: 0,
-      colors: ["red", "green", "yellow"],
+      colorIndex: 0
     };
   }
 
   handleNextState = () => {
     this.setState((prevState) => ({
-      colorIndex: (prevState.colorIndex + 1) % 3,
+      colorIndex: (prevState.colorIndex + 2) % colors.length
     }));
   };
 
   render() {
-    const { colorIndex, colors } = this.state;
+    const { colorIndex } = this.state;
     return (
       <div className="traffic-light-box">
         <h2>Class Traffic Light</h2>
